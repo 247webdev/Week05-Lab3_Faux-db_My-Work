@@ -9,10 +9,50 @@
 </head>
 <body>
   <h1>Here are our users!</h1>
-  <% @users.each do |user| %>
-    <h2><%= user[:name]%></h2><a href="/users/<%= user[:id]%>"> Edit a user</a>
 
-  <% end %>
+  <table>
+    <thead>
+      <tr>
+        <td>ID</td>
+        <td>First and last name</td>
+        <td>Acct Name</td>
+        <td>Password</td>
+        <td>Edit</td>
+        <td>Delete</td>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td>
+            <%= user[:id]%>
+          </td>
+          <td>
+            <%= user[:first]%> <%= user[:last]%> 
+          </td>
+          <td>
+            <%= user[:user_name] %>          
+          </td>
+          <td>
+            <%= user[:pw] %>          
+          </td>
+          <td>
+            <a href="/users/<%= user[:id] %>">Edit</a>
+          </td>
+          <td>
+            <form action="/users/<%= user[:id] %>" method="post">
+              <input type="hidden" name="_method" value="delete">
+              <input type="submit" value="Delete">              
+            </form>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+    <tfoot>
+
+    </tfoot>
+  </table>
+
   <p>
     <a href="/users/new">Add a user!</a>
   </p>

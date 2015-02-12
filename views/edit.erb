@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>List a user</title>
+  <link rel="stylesheet" href="/main.css">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src = "/hello.js"></script>
+</head>
+<body>
+  <h1>Here is the user you wanted to edit</h1>
+
+  <form action="/users/<%= params[:id] %>" method="post">
+    <table>
+      <thead>
+        <tr>
+          <td>ID</td>
+          <td>First and last name</td>
+          <td>Acct Name</td>
+          <td>Password</td>
+        </tr>
+      </thead>
+
+      <tbody>
+          <input type="hidden" name="_method" value="put">
+
+          <tr>
+            <td>
+              <%= @user[:id]%>
+            </td>
+
+            <td>
+              <input type="text" name="first" tabindex="1" value="<%= @user[:first]%>">
+              <input type="text" name="last" tabindex="2" value="<%= @user[:last]%>">
+            </td>
+            
+            <td>
+              <input type="text" name="user_name" tabindex="3" value="<%= @user[:user_name]%>">
+            </td>
+
+            <td>
+              <input type="password" name="pw" tabindex="4" value="<%= @user[:pw]%>">
+            </td>
+
+          </tr>
+
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="4">
+            <input type="submit" value="Submit Edit">
+          </td>
+        </tr>
+      </tfoot>
+    </table>
+
+  </form>
+
+
+</body>
+</html>

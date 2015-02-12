@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Create User</title>
+  <link rel="stylesheet" href="/main.css">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src = "/hello.js"></script>
+</head>
+<body>
+
+  <h2>Create User</h2>
+  <form action="/users" method="post">
+    <input type="hidden" name="_method" value="post">
+
+    First: <input type="text" name="first" tabindex="1" required autofocus><br>
+    Last: <input type="text" name="last" tabindex="2"><br>
+    Account Name: <input type="text" name="user_name" tabindex="3"><br>
+    Password: <input type="password" name="pw" tabindex="4"><br>
+
+    <input type="submit" value="Create User" tabindex="5">
+  </form>
+  
+</body>
+</html>
+

@@ -60,12 +60,14 @@ end
 
 # DELETE /users/:id - delete a user by their id
 delete '/users/:id' do
-  user = users[params[:id].to_i - 1 ]
+  users.delete_at( params[:id].to_i - 1 )
 
-  user[:first] = ""
-  user[:last] = ""
-  user[:user_name] = ""
-  user[:pw] = ""
+  # user = users[params[:id].to_i - 1 ]
+
+  # user[:first] = ""
+  # user[:last] = ""
+  # user[:user_name] = ""
+  # user[:pw] = ""
 
   redirect to '/'
 end
